@@ -1,0 +1,689 @@
+﻿ProjectID,Entity Type,ID,Name,Description,Start Date,Planned Start Date,End Date,Planned End Date,Time Spent,Time Remain,Create Date,Modify Date,Last Comment Date,Last State Change Date,Effort,Effort Completed,Effort To Do,Role Efforts,Progress,Project,Release,Sprint,Team Sprint,Assigned Teams,Team State,Last Commented User,Tags,Numeric Priority,Last Editor,Owner,Linked Test Plan,Units,Priority,Entity State,Assignments,Source Type,Is Replied,Is Private,Votes Count,Request Type
+15900,Request,12638,Graql: Make Graql cost function use graph metrics,"Use the data in the graph to inform estimated cost. This could include:
+Number of instances per type
+Number of role-players per relation
+Number of resources with particular values
+For scalability, these values should either be calculated continuously (e.g. incrementing a counter when adding an instance) or sampled randomly.
+",2018-01-17 18:33:05,"","","",0.0000,0.0000,2017-02-08 16:34:51,2018-04-10 16:57:12,2018-02-07 18:10:38,2018-04-10 16:57:12,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Felix Chapman,Graql,6862,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Haikal Pribadi",None,True,False,1,Feature
+13776,Request,13780,Schema: Highlight connected types in a visualised graph,"","","","","",0.0000,0.0000,2017-05-11 17:11:31,2018-01-23 17:44:32,"",2017-05-11 18:05:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8710,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,13781,Query: Have an option to see or not see resources in visualisation,"","","","","",0.0000,0.0000,2017-05-11 17:11:52,2018-01-23 17:44:12,"",2017-05-11 18:05:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8716,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,13791,able to change type name,"","","","","",0.0000,0.0000,2017-05-11 17:27:30,2018-01-14 21:18:22,"",2017-05-11 18:05:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8738,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+15900,Request,15572,Architecture: repackage distributions,"We are in the process of redesigning our architecture after we redefine our package architecture, we want to refine our distributions.
+a) differentiate product names (Grakn Core VS Grakn KGMS)
+b) differentiate package services (Server VS Console)
+c) Unify entry point through the shell script (just have one console per product)
+For the binary/jar distribution, we want to have the following:
+For Grakn Core:
+1. grakn-core : the shell script for running server or console on Grakn Core.
+2. grakn-core-server.jar
+3. grakn-core-console.jar
+Users can then install grakn through package managers in such a way (example using APT, but should apply for eery package manager):
+1. apt-get install grakn-core-all which installs 1, 2, and 3 from above.
+2. apt-get install grakn-core-server which installs 1 and 2 from above.
+3. apt-get install grakn-core-console which installs 1 and 3 from above.
+For Grakn KGMS
+1. grakn-kgms : the shell script for running server or console on Grakn KGMS.
+2. grakn-kgms-server.jar
+3. grakn-kgms-console.jar
+Users can then install grakn through package managers in such a way (example using APT, but should apply for eery package manager):
+1. apt-get install grakn-kgms-all which installs 1, 2, and 3 from above.
+2. apt-get install grakn-kgms-server which installs 1 and 2 from above.
+3. apt-get install grakn-kgms-console which installs 1 and 3 from above.
+Note:
+1. There is no package manager command to install both grakn-core and grakn-kgms distributions all at once, because it is not needed.
+2. grakn-kgms distributions can only be installed through a package manager, when the user is provided access to our internal APT server, or other package managers.
+","","","","",0.0000,0.0000,2017-06-13 12:45:21,2018-08-21 14:44:11,2018-04-09 17:11:52,2018-01-17 18:23:31,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,Haikal Pribadi,Graql,8991,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Haikal Pribadi,None,True,False,1,Feature
+15900,Request,16007,"Engine: Shard Entities, Relationships, and Attributes before it turns into a supernode","Sharding works only for types. It should work for entities, relationships and attributes as well.
+","","","","",0.0000,0.0000,2017-07-04 18:49:44,2018-08-14 21:57:11,2018-01-18 15:13:46,2017-07-04 19:09:16,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Filipe Peliz Pinto Teixeira,"Grakn, Graph API",9223,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,True,False,1,Feature
+15900,Request,16020,Engine: import Graql files via GRPC,"","","","","",0.0000,0.0000,2017-07-04 19:40:40,2018-08-14 01:15:34,"",2018-08-14 01:14:59,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",9279,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+15900,Request,17334,Graql: Ability to remove a role player from relationships,"How can we remove a specific roleplayer from a relation? In the Java API, it could be as simple as:
+
+relation.removeRolePlayer(instance);But how do we do that with Graql? We have two options on the table:
+1. Use a new keyword to flag the role player to be deleted:
+
+match $r (actor NEW-KEYWORD $c: $x); $x isa person; delete $c;
+or
+2. Make the deletion part take in patterns:
+
+match $r (actor: $x); $x isa person; delete $r (actor: $x);Option 2 makes delete behave a lot like undefine which is nice but it may make `Get` look like the odd one out. Insert and Delete take patterns but Get only takes in a list of variables.
+Not sure how bad that is.
+","","","","",0.0000,0.0000,2017-08-30 12:26:00,2018-04-10 17:36:28,2018-03-14 18:01:52,2018-04-10 17:36:28,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Haikal Pribadi,"Grakn, Graql",12191,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Haikal Pribadi,None,True,False,1,Feature
+15900,Request,17597,Console: keyspace management,"We need a way of managing keyspaces in grakn, similar to `DROP DATABASE` or `CREATE DATABASE` in the SQL world.
+My proposal is to do it through the graql console:
+
+keyspace list
+keyspace add <keyspace-name>
+keyspace rename <from-name> <to-name>
+keyspace delete <keyspace-name>",2018-07-16 18:09:49,"","","",0.0000,0.0000,2017-09-26 18:05:59,2018-08-13 16:45:45,"",2018-08-13 16:45:44,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"",Grakn,12418,Haikal Pribadi,Ganeshwara Hananda,"",h,High,Accepted,(Developer) Marco Scoppetta,None,False,False,1,Feature
+17433,Request,19010,KGMS: small end-to-end correctness test,"Acceptance criteria
+The sole goal of the end-to-end test is to have some confidence that clustering works and we're not losing any data under the happy-path scenario. This should be achieved with the following verification process:
+1. Support a scenario where we can run a fast test. Fast test = productivity. We can expect to need to re-run the test many times especially considering the early stage of the product. Aim for small dataset consisting of 5K entities, attributes, and relations following a regular pattern.
+2. Being able to verify that the data have been inserted properly. In case of error, the error should be logged properly, enabling the team to start looking at the right place.
+3. Being able to re-run the test in an automated way in order to maintain productivity. Ideally, we should be aiming under 10 minutes for a single run, including node initialization.
+Implementation detail
+TODO
+Implementation detail (Postponed due to Issues with running SNB with KGMS)
+1. We're looking into re-using SNB test as a data source
+2. There are various issues in making the test fully automatable:
+a. We have to discuss which infrastructure to use (e.g. our own server, Amazon AWS, Oracle cloud)
+b. Infrastructure set up should be automated. Using immutable infrastructure or infrastructure as code approach would be a nice plus in order to reduce complexity.
+c. Grakn distribution build process must be automated
+",2018-01-17 19:05:59,"","","",0.0000,0.0000,2018-01-05 21:21:30,2018-08-13 19:55:49,"",2018-08-13 19:55:49,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",13638,Haikal Pribadi,Ganeshwara Hananda,"",h,High,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Kasper Piskorski",None,False,False,1,Feature
+17433,Request,19066,Centralised Database of Generated Licenses,"Any license file we generate for clients needs to be stored safely.
+This is so we can track licenses more carefully as well as be aware of when licesnes will expire for example
+","","","","",0.0000,0.0000,2018-01-08 19:07:46,2018-03-25 00:03:58,2018-01-20 17:13:58,2018-01-22 14:42:13,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Haikal Pribadi,"",13690,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Marco Scoppetta,None,True,False,1,Feature
+13776,Request,19240,Workbase: Basic schema designer,"Environment to design the schema for the knowledge base, which includes definining and undefining Entities, Relationships, and Attributes, through the UI.
+",2018-08-08 18:41:29,"","","",0.0000,0.0000,2018-01-23 16:43:55,2018-08-14 00:56:14,"",2018-08-14 00:56:14,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13804,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Syed Irtaza Raza,None,False,False,1,Feature
+13776,Request,19241,Schema: Rule Schema Designer,"Environment to design rules to be added and removed from the schema through the UI.
+","","","","",0.0000,0.0000,2018-01-23 16:53:51,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13805,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19243,Schema: Type information box/window,"A window for visualising textual information of schema types.
+The idea that we can display a TYPE in a small page inside a window on the right side page, where the:
+1. ENTITY PAGE contains the list of:
+- plays roles (which can be clicked and take you to the RELATION PAGE)
+- has attributes (which can be clicked and take you to the ATTRIBUTE PAGE)
+2. RELATION PAGE contains a list of:
+- role players (which can be clicked and take you to the ENTITY PAGE)
+- attributes (which can be clicked and take you to the ATTRIBUTES PAGE)
+3. ATTRIBUTE PAGE contains a list of:
+- entity owners (which can be clicked and take you to the ENTITY PAGE)
+- relation owners (which can be clicked and take you to the RELATION PAGE)
+","","","","",0.0000,0.0000,2018-01-23 16:56:45,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13807,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19246,Query: query input form,"","","","","",0.0000,0.0000,2018-01-23 17:02:59,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13809,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19247,Query: interactive query builder,"","","","","",0.0000,0.0000,2018-01-23 17:03:09,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13810,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19248,Schema: graph visualisation framework for types,"","","","","",0.0000,0.0000,2018-01-23 17:04:27,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13811,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19249,Query: graph visualisation framework for data,"","","","","",0.0000,0.0000,2018-01-23 17:07:04,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13812,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19253,Admin: enterprise license management,"","","","","",0.0000,0.0000,2018-01-23 17:15:52,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13816,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19254,Admin: Workbase server connection,"","","","","",0.0000,0.0000,2018-01-23 17:26:14,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13817,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+13776,Request,19255,Admin: Cluster configuration summary,"","","","","",0.0000,0.0000,2018-01-23 17:26:24,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13818,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"",None,False,False,1,Feature
+15900,Request,19312,Grakn: Deprecating REST API,"This is a Question Requirement, not Issue/Feature.
+I would like to hear everyone's opinion on this. Do we want to keep our REST API once we have our RPC Clients?
+Let's discuss in the comments. This is already a private Requirement.
+",2018-01-30 20:54:05,"","","",0.0000,0.0000,2018-01-30 20:54:05,2018-04-10 17:06:18,2018-02-07 16:18:06,2018-04-10 17:06:17,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Ganeshwara Hananda,"",13860,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Marco Scoppetta,None,True,True,1,Question
+15900,Request,19842,Console: integration and optimisation,"Why:
+Grakn functions are exposed through different executables - some through `grakn`, some through `graql`, and some others through the KGMS console.
+How:
+Merge all console interfaces into one grakn-[core|kgms]-console.jar
+","","","","",0.0000,0.0000,2018-04-09 17:11:08,2018-09-05 18:14:27,2018-09-05 18:14:20,2018-04-09 17:11:08,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,Ganeshwara Hananda,"",14298,Ganeshwara Hananda,Haikal Pribadi,"",h,High,In Progress,(Developer) Ganeshwara Hananda,None,True,False,3,Feature
+15900,Request,19854,Graql: key constraint,"Define cardinality restriction of an entity-attribute by declaring the constraint keyword after the attribute declaration in an entity type declaration.
+For now, just implement the key cardinality constraint. But when we have multiple types of cardinality constraints, it should look like below.
+
+define
+
+person sub entity,
+has username key,
+has firstname,
+has lastname min=1 max=2,
+has email unique;","","","","",0.0000,0.0000,2018-04-10 18:57:46,2018-08-13 19:33:57,"",2018-08-13 19:33:57,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14305,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Haikal Pribadi,None,False,False,1,Feature
+17433,Request,19869,KGMS: bootup issues,"","","","","",0.0000,0.0000,2018-04-11 18:32:16,2018-08-13 19:59:59,"",2018-08-13 19:59:59,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",14316,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Marco Scoppetta",None,False,False,1,Issue
+15900,Request,19937,Graql: relationship and role inheritance,"","","","","",0.0000,0.0000,2018-04-14 23:25:58,2018-08-13 19:35:53,"",2018-08-13 19:35:53,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14338,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Haikal Pribadi,None,False,False,1,Feature
+18754,Request,20105,Docs: rewrite,"",2018-05-21 15:24:07,"","","",0.0000,0.0000,2018-05-21 15:23:56,2018-08-12 23:45:35,2018-06-24 14:06:32,2018-06-24 14:06:35,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","","",Developers,In Progress,Ganeshwara Hananda,"",14453,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Haikal Pribadi,None,True,False,1,Feature
+17433,Request,20544,KGMS: Automate GCP user support sign-up,"Why:
+It benefits the development team - we don't have to send emails around and chase people using the cloud.
+At the moment we have no way of verifying who is using the cloud and therefore who is eligible for support and by automating the sign up this problem will be solved.
+It also benefits the user - they can be registered to the platform with 0 effort.
+How:
+Implement new signup page for enterprise users on Grakn website and integrate with Google APIs https://cloud.google.com/marketplace/docs/partners/support-integration
+After the user signs up on Grakn website, automatically create an associated TP user.
+",2018-06-08 12:31:12,"","","",0.0000,3.0000,2018-06-08 12:31:12,2018-09-06 16:06:03,"",2018-08-13 22:45:49,3.0000,0.0000,3.0000,(Developer) 3.0000,0.0000,Grakn KGMS,"","","",Developers,In Progress,"","",14516,Ganeshwara Hananda,Kasper Piskorski,"",h,High,In Progress,(Developer) Marco Scoppetta,None,False,False,1,Feature
+15900,Request,20283,Benchmarking 1.0,"Why:
+We don't have the framework for measuring Grakn performance. Therefore, most of the discussion about optimisation revolves around assumptions.
+How:
+Develop a measurement framework in the form of a benchmarking system - a basic system to record and manage data representing the following pionts, and display this data in a usable format.
+1. the execution time of queries from start to finish at different knowledgebase sizes
+2. the run time of each component in Grakn when a query is being performed
+",2018-07-02 16:05:47,"","","",0.0000,0.0000,2018-07-02 16:05:47,2018-09-10 15:30:26,"",2018-08-13 00:56:32,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14602,Joshua Send,James Fletcher,"",h,High,In Progress,(Developer) Joshua Send,None,False,False,1,Feature
+15900,Request,20391,Engine: correctness guarantee of transaction and Concept Id,"Why:
+We need to be able to answer questions such as ""Is Grakn ACID-compliant?"" confidently. The confidence is achieved by documenting the correctness guarantee that Grakn promise to the user.
+How:
+Grakn queries are converted into JanusGraph's Gremlin queries, which then got converted into Cassandra queries. Therefore, by documenting a mapping between a Grakn query -> JanusGraph query -> Cassandra query, we'll be able to reason about the correctness guarantee.
+The work will be divided into:
+- Map tx.open and tx.commit operations from Grakn to Janus and Cassandra (Completed)
+- Map the tx.graql().match(var(""x"").isa(""person"")).execute() at Grakn transaction, Janus, and Cassandra Level (In-Progress)
+- Concept Id: Investigate the probability of ID collision in the cluster scenario (In-Progress)
+Resulting document: https://docs.google.com/document/d/1OT2f3Cr7Tq01rA-U7CkpQgwu14am6THAFuk5i_50J14/edit
+",2018-07-19 16:14:00,"","","",0.0000,0.0000,2018-07-19 16:13:35,2018-09-07 16:30:03,2018-07-23 15:06:32,2018-09-07 16:17:09,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,Jyothish Soman,"",14694,Ganeshwara Hananda,Ganeshwara Hananda,"",h,High,In Progress,(Developer) Jyothish Soman,None,True,False,1,Feature
+17433,Request,20504,KGMS: upgrade to Grakn Core 1.4 and enable Workbase,"Why:
+We are still at KGMS 1.2 (which relies on Grakn Core 1.2)
+How:
+Refactor and build KGMS 1.4 based on Grakn Core 1.4
+",2018-08-08 18:40:08,"","","",0.0000,0.0000,2018-08-08 18:40:08,2018-09-06 16:01:43,"",2018-08-13 00:56:33,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,In Progress,"","",14794,Ganeshwara Hananda,Marco Scoppetta,"",h,High,In Progress,(Developer) Marco Scoppetta,None,False,False,1,Feature
+13776,Request,20513,Workbase: automated build and deployment,"Have CI workflow that allows us to automatically package workbase for Linux and Mac and create a github draft release that contains grakn && workbase distribution packages(zip, dmg, tar)
+",2018-08-10 13:34:37,"","","",0.0000,0.0000,2018-08-10 13:34:37,2018-08-16 17:02:34,"",2018-08-13 00:56:33,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,In Progress,"","",14802,Marco Scoppetta,Marco Scoppetta,"",h,High,In Progress,(Developer) Marco Scoppetta,None,False,False,1,Feature
+15900,Request,20535,Graql: 1.3 performance optimisation,"","","","","",0.0000,0.0000,2018-08-13 21:17:07,2018-08-21 12:57:03,"",2018-08-13 21:17:07,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14818,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,"(Developer) Kasper Piskorski, (Developer) Joshua Send",None,False,False,1,Feature
+15900,Request,20538,Engine: rewrite,"This requirement is an umbrella requirement for:
+1. Simplification of codebase
+2. Removal of unneeded / dead code
+Specific goals:
+1. Remove migration
+2. Remove REST API
+3. Merge with grakn-bootup
+4. Merge with grakn-kb
+5. Merge with grakn-factory
+","","","","",0.0000,0.0000,2018-08-13 21:45:56,2018-08-27 17:38:12,"",2018-08-13 21:45:56,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14821,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+17433,Request,20543,KGMS: 1.2 orchestration improvements,"","","","","",0.0000,0.0000,2018-08-13 22:42:17,2018-09-05 10:09:15,2018-09-04 21:45:09,2018-08-13 22:42:17,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,In Progress,Ganeshwara Hananda,"",14823,Kasper Piskorski,Haikal Pribadi,"",h,High,In Progress,(Developer) Kasper Piskorski,None,True,False,1,Feature
+15900,Request,20547,Tests: rearchitect and rebuild,"","","","","",0.0000,0.0000,2018-08-14 01:21:32,2018-08-14 01:21:42,"",2018-08-14 01:21:32,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14824,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+15900,Request,20566,Graql: query caching per transaction,"",2018-08-14 20:19:09,"","","",0.0000,0.0000,2018-08-14 20:09:25,2018-08-14 20:21:03,2018-08-14 20:19:09,2018-08-14 20:20:15,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,Haikal Pribadi,merged,14832,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Kasper Piskorski,None,True,False,2,Feature
+15900,Request,20567,Graql: multithreaded reasoning,"Self explanatory, we want to either
+use multithreaded transaction or
+use multiple transactions
+to split the work required for resolution traversal.
+","","","","",0.0000,0.0000,2018-08-14 20:15:48,2018-08-21 16:51:30,"",2018-08-21 16:51:30,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14833,Haikal Pribadi,Haikal Pribadi,"",h,High,Accepted,(Developer) Kasper Piskorski,None,False,False,1,Feature
+13776,Request,20622,Workbase: new visualiser UI,"Why:
+The previous UI for Workbase was a prototype and the new UI is for the release of Workbase.
+How:
+Create new UI components:
+Top bar: contains graql editor, keypace selection, List favourite queries, list types, run query, refresh graph
+Right bar: Concept info, Settings
+Left bar: Commands and shortcuts
+Bottom bar: Console, grid view
+Canvas: Update node view
+","","","","",0.0000,0.0000,2018-08-21 11:22:36,2018-09-10 12:06:40,"",2018-08-21 11:22:36,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,In Progress,"","",14872,Syed Irtaza Raza,Haikal Pribadi,"",h,High,In Progress,(Developer) Syed Irtaza Raza,None,False,False,1,Feature
+13776,Request,20623,Workbase: basic schema designer with client-nodejs 1.4,"Why:
+Schema Designer prototype uses client-nodejs 1.3 and is not compatible with client-nodejs version 1.4.
+How:
+By updating the source code for Schema designer to work with the client-nodejs 1.4.
+","","","","",0.0000,0.0000,2018-08-21 11:27:25,2018-09-10 12:12:17,"",2018-08-21 11:27:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,In Progress,"","",14873,Syed Irtaza Raza,Haikal Pribadi,"",h,High,In Progress,(Developer) Syed Irtaza Raza,None,False,False,1,Feature
+13776,Request,20625,Workbase: new schema designer UI,"Why:
+Current UI for Schema Designer is out of date and does not follow the UI design for Workbase - Visualiser.
+How:
+Iterate on the design for Schema Designer and impliment it.
+","","","","",0.0000,0.0000,2018-08-21 11:35:31,2018-09-10 12:10:34,"",2018-08-21 11:35:31,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,In Progress,"","",14875,Syed Irtaza Raza,Haikal Pribadi,"",h,High,In Progress,(Developer) Syed Irtaza Raza,None,False,False,1,Feature
+7469,Request,20626,CR: Auto deployment of release distributions,"Why:
+Make the release process of Grakn Core, Workbase, and the client libraries less error prone by minimising the involved manual efforts.
+How:
+Added CircleCI deployment workflow that gets triggered when you tag a commit. It will create a GitHub draft release containing the following:
+- Grakn Core zip
+- Workbase Linux distribution
+- Workbase Mac Dist (TODO: needs code signature)
+Once we have a commit that is Release Candidate, one of the Grakn admin needs to push to master the commit with a new tag attached to it.
+","","","","",0.0000,0.0000,2018-08-21 12:49:06,2018-09-06 16:03:07,"",2018-08-21 12:49:06,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Continuous Delivery,"","","",Developers,In Progress,"","",14876,Ganeshwara Hananda,Haikal Pribadi,"",h,High,In Progress,(Developer) Marco Scoppetta,None,False,False,1,Feature
+15900,Request,20627,Engine: improve the efficiency of Grakn's query planner,"Why:
+UST reported that the following queries are slow:
+- https://work.grakn.ai/entity/20575-shared-attribute-query-slow
+- https://work.grakn.ai/entity/20576-combined-relation-multiple-attribute-query-slow
+How:
+- Provide an instance count per type (ie, a `Map<Label, Integer>`). This instance count will be used by the query planner to start from a type which has the least amount of instance.
+- Provide an implicit relationship count per type. (ie., `Map<ImplicitRelationshipType, Integer>`)
+- The query planner should do greedy search with lookahead
+Additionally, in the single node scenario, it will be easy. You'll just have to store a count which can be incremented when a new concept is inserted. However, in a cluster, insertion can happen across different nodes and the count needs to be propagated between one node to another.
+","","","","",0.0000,0.0000,2018-08-21 12:50:25,2018-09-11 19:24:58,2018-09-11 19:06:21,2018-08-21 12:50:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,Ganeshwara Hananda,"",14877,Ganeshwara Hananda,Haikal Pribadi,"",h,High,In Progress,"(Developer) Ganeshwara Hananda, (Developer) Kasper Piskorski, (Developer) Joshua Send",None,True,False,1,Feature
+15900,Request,20628,Architecture: redefine architecture,"","","","","",0.0000,0.0000,2018-08-21 14:44:44,2018-08-27 17:00:20,"",2018-08-21 14:44:44,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14878,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+15900,Request,20631,Graql: Negation,"define negation operator on VarPattern
+decompose query to Negation Normal Form
+calculate the answers to the query via set complement/difference akin to Negation-As-Failure
+Profit!
+","","","","",0.0000,0.0000,2018-08-21 17:53:05,2018-09-11 21:05:43,2018-09-11 21:06:38,2018-08-21 17:53:05,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,Kasper Piskorski,"",14879,Kasper Piskorski,Haikal Pribadi,"",h,High,In Progress,(Developer) Kasper Piskorski,None,True,False,2,Feature
+18754,Request,20647,Docs: new migration examples with Client Java,"The goal: of this requirement is to:
+1. create migration examples that use our drivers, rather than the Graql Migration templates (how it's currently documented)
+2. write a tutorial for each example
+3. publish the tutorial on the blog and documentation platform
+Examples: For each Grakn Client driver illustrate migrating data from the following formats:
+1. CSV
+2. SQL
+3. JSON
+4. XML
+# Dataset: For each example must have one or more of the following characteristics:
+1. contains simple data types
+2. contains a simple relationship
+# Article structure: Given a simple dataset in a given format (e.g. CSV), show how to:
+1. Define the schema of the database
+- make a simple schema
+- load the schema into the database
+- query the schema (through terminal)
+- write an example of insert query (through terminal)
+2. Load the dataset to the database
+- import the driver into the program
+- read the dataset into the program
+- create a database session and transaction in the program
+- produce the insert queries with the dataset
+- write and commit the insert queries, using the transactions, onto the database
+3. Query the data
+- query the data from the database
+- visualise the data
+","","","","",0.0000,0.0000,2018-08-22 18:02:22,2018-09-13 19:50:28,"",2018-08-22 18:02:22,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","","",Developers,In Progress,"","",14890,Ganeshwara Hananda,Soroush Saffari,"",h,High,In Progress,(Developer) Soroush Saffari,None,False,False,1,Feature
+18754,Request,20659,Docs: new migration examples with Client Node.js,"The goal: of this requirement is to:
+1. create migration examples that use our drivers, rather than the Graql Migration templates (how it's currently documented)
+2. write a tutorial for each example
+3. publish the tutorial on the blog and documentation platform
+Examples: For each Grakn Client driver illustrate migrating data from the following formats:
+1. CSV
+2. SQL
+3. JSON
+4. XML
+Dataset: For each example must have one or more of the following characteristics:
+1. contains simple data types
+2. contains a simple relationship
+Article structure: Given a simple dataset in a given format (e.g. CSV), show how to:
+1. Define the schema of the database
+make a simple schema
+load the schema into the database
+query the schema (through terminal)
+write an example of insert query (through terminal)
+2. Load the dataset to the database
+produce the insert queries with the dataset
+import the driver into the program
+read the dataset into the program
+create a database session and transaction in the program
+write and commit the insert queries, using the transactions, onto the database
+3. Query the data
+query the data from the database
+visualise the data
+","","","","",0.0000,0.0000,2018-08-23 13:40:20,2018-08-25 17:38:36,2018-08-23 13:40:21,2018-08-23 13:41:17,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","","",Developers,In Progress,Haikal Pribadi,"",14891,Soroush Saffari,Soroush Saffari,"",h,High,In Progress,(Developer) Soroush Saffari,None,True,False,2,Feature
+18754,Request,20658,Docs: new migration examples with Client Python,"The goal: of this requirement is to:
+1. create migration examples that use our drivers, rather than the Graql Migration templates (how it's currently documented)
+2. write a tutorial for each example
+3. publish the tutorial on the blog and documentation platform
+Examples: For each Grakn Client driver illustrate migrating data from the following formats:
+1. CSV
+2. SQL
+3. JSON
+4. XML
+Dataset: For each example must have one or more of the following characteristics:
+1. contains simple data types
+2. contains a simple relationship
+Article structure: Given a simple dataset in a given format (e.g. CSV), show how to:
+1. Define the schema of the database
+- make a simple schema
+- load the schema into the database
+- query the schema (through terminal)
+- write an example of insert query (through terminal)
+2. Load the dataset to the database
+- import the driver into the program
+- read the dataset into the program
+- create a database session and transaction in the program
+- produce the insert queries with the dataset
+- write and commit the insert queries, using the transactions, onto the database
+3. Query the data
+- query the data from the database
+- visualise the data
+","","","","",0.0000,0.0000,2018-08-23 13:39:34,2018-09-15 11:28:30,2018-08-23 13:39:35,2018-08-23 13:41:30,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","","",Developers,In Progress,Haikal Pribadi,"",14892,Soroush Saffari,Soroush Saffari,"",h,High,In Progress,(Developer) Soroush Saffari,None,True,False,2,Feature
+15900,Request,20736,Engine: Attribute deduplicator optimisation,"Why:
+The deduplicator works well on most scenarios but there are several outstanding issues:
+- does not handle the following failure scenario: An attribute ""John"" has been stored into Cassandra, but Grakn crashes just before inserting the data to the queue. It may cause the deduplication to never be triggered.
+- the producer-consumer pattern, which uses wait/notify, is considered hard to understand and needs to be made simpler
+- the write-if-not-exists check is still enabled because the query planner wouldn't work when there are duplicates. the write-if-not-exists check is not a good guard, as it only works when an application is inserting sequentially, from a single thread
+- if we are to remove the write-if-not-exists check though, deduplicator would always get triggered when new attributes are inserted. there must be something we can do to optimise it.
+How:
+","","","","",0.0000,0.0000,2018-09-03 18:13:05,2018-09-07 12:43:34,"",2018-09-07 12:27:02,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14970,Ganeshwara Hananda,Ganeshwara Hananda,"",h,High,In Progress,(Developer) Ganeshwara Hananda,None,False,False,1,Feature
+15900,Request,20763,Architecture: migrate build system to Bazel,"","","","","",0.0000,0.0000,2018-09-05 11:57:15,2018-09-05 11:57:36,"",2018-09-05 11:57:15,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14979,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+15900,Request,20829,Architecture: trim down dependencies,"","","","","",0.0000,0.0000,2018-09-11 13:33:18,2018-09-11 13:33:32,"",2018-09-11 13:33:18,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",15140.6204746337,Haikal Pribadi,Haikal Pribadi,"",h,High,In Progress,"(Developer) Ganeshwara Hananda, (Developer) Haikal Pribadi, (Developer) Marco Scoppetta",None,False,False,1,Feature
+15900,Request,5074,Graql: Fuzzy matching on values,"e.g.
+match $x isa person value ~= ""James""
+","","","","",0.0000,0.0000,2016-04-29 13:36:37,2018-04-09 18:06:59,2016-10-18 11:06:28,2016-10-18 11:06:30,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Filipe Peliz Pinto Teixeira,Graql,2488,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,True,False,1,Feature
+15900,Request,10139,Graql: Nested patterns,"An example of a simple query involving a single relation:
+
+match
+(director: $jc, $m);
+$jc has name ""James Cameron"";
+$m has title $t;
+select $t;
+While queries such as the above are clear in their meaning, they take time to type and for users to parse. Experienced users may find it frustrating to repeatedly type these queries out.
+This could be resolved by allowing nesting or ""inlining"" roleplayers, turning this into a one-liner:
+
+match (director: has name ""James Cameron"", has title $t);
+So the above would find titles of movies directed by something with name ""James Cameron"".
+Unfortunately, if we were to allow this nesting of roleplayers then the above becomes ambiguous to parse. It's not clear whether another roleplayer has title $t, or if James Cameron has title $t.
+This ambiguity is because commas are used to separate roleplayers, but can also optionally be used to separate properties.
+Solutions
+Remove optional commas
+This can be resolved by not allowing separating properties with commas.
+This can lead to ugly one-line statements:
+
+movie ako production plays-role production-with-cast has-resource title;
+However, in practice people are not using the commas anyway. They are instead writing the above like this:
+
+movie ako production
+  plays-role production-with-cast
+  has-resource title;
+See moogi and pokemon for examples.
+Separate roleplayers with semicolon
+Another choice is to use semicolons to separate roleplayers:
+
+match (director: has name ""James Cameron""; has title $t);
+Semicolons are already being used to separate variable patterns, so it makes total sense here. The only issue is that semicolons inside brackets might look strange.
+Strictly speaking there should be a semicolon after the last roleplayer too, but it looks really, really bad so let's not:
+
+match (director: has name ""James Cameron""; has title $t;);
+Braces
+Another option is to require braces (or similar) around nested properties:
+
+match (director: {has name ""James Cameron""}, {$x isa movie});
+This is not particularly pretty, but fairly consistent with our use of curly braces to nest queries already. It also allows us to nest variables anywhere. For example, instead of:
+
+match
+$x isa $y;
+$y plays-role actor;
+we can say:
+
+match $x isa {plays-role actor};
+Mandatory variable names
+Another is to always require a variable name for a roleplayer:
+
+match (director: $y has name ""James Cameron"", $x isa movie);
+select $x;
+This eliminates one of the major benefits of the syntax: not requiring a variable name can allow for much shorter queries, by avoiding unused variable names and pointless select statements, such as select $x above.
+Comparison example
+""titles of movies directed by James Cameron"":
+Old syntax:
+
+match
+(director: $jc, $m);
+$jc has name ""James Cameron"";
+$m has title $t;
+select $t;
+Disallow commas:
+
+match (director: has name ""James Cameron"", has title $t);
+Separate roleplayers with semicolons:
+
+match (director: has name ""James Cameron""; has title $t);
+Braces:
+
+match (director: {has name ""James Cameron""}, {has title $t});
+Mandatory variable names:
+
+match
+(director: $jc has name ""James Cameron"", $m has title $t);
+select $t;","","","","",0.0000,0.0000,2016-10-12 11:03:49,2018-04-09 18:07:30,"",2016-12-19 11:07:45,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"",Graql,4976,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"(Developer) Kasper Piskorski, (Developer) Haikal Pribadi",None,False,False,1,Feature
+15900,Request,11591,Graql: cardinality on attributes and roles,"As in:
+person sub entity
+has first-name [1,1]
+has middle-name [0, *]
+has address [1,*];
+shopping-transaction sub relationship
+relates buyer [1,1]
+relates seller [1,1]
+relates product [1,*]
+has date [1,1];
+...and so on. This might be a demanding extension on some levels, but:
+- we're already dealing with a few implicit cardinality restrictions in the system, anyway, so making them explicit would increase transparency,
+- making these explicit would also clarify a number of intriguing issues on the KR side (first in the row inheritance between relations),
+- it's a common modelling feature in conceptual modelling frameworks (ER) and some ontology languages (OWL).
+The immediate costs:
+- yet another feature in our not-so-trivial schema language,
+- more complexity for the consistency validation mechanism.
+","","","","",0.0000,0.0000,2016-12-01 16:23:53,2018-08-14 22:06:13,2016-12-01 17:14:23,2018-01-15 19:31:35,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Szymon Klarman,"Grakn, Graph API",5353,Haikal Pribadi,Szymon Klarman,"",h,Medium,Accepted,"",None,True,False,1,Feature
+15900,Request,13406,Graql: allow types to have multiple names,"","","","","",0.0000,0.0000,2017-04-06 16:59:27,2018-08-14 22:06:04,2018-01-17 13:04:14,2018-01-15 19:39:56,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Haikal Pribadi,"Grakn, Graph API",8648,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,True,False,1,Feature
+13776,Request,13778,Schema: Window list all types in the schema,"","","","","",0.0000,0.0000,2017-05-11 17:11:16,2018-01-23 17:48:02,"",2017-05-11 18:05:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8701,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+13776,Request,13785,Schema: Synchronise graql code editor with new edits on the schema,"","","","","",0.0000,0.0000,2017-05-11 17:12:17,2018-01-23 18:02:47,"",2017-05-11 18:05:24,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8735,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+17433,Request,19130,Cloud: release KGMS on AWS Marketplace,"",2018-04-09 17:55:50,"","","",0.0000,0.0000,2018-01-13 18:07:32,2018-08-21 12:38:42,"",2018-08-13 00:56:29,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,In Progress,"","",13733,Haikal Pribadi,Haikal Pribadi,"",h,Medium,In Progress,(Developer) Kasper Piskorski,None,False,False,1,Feature
+15900,Request,19131,Graql: improve error messages,"","","","","",0.0000,0.0000,2018-01-13 18:08:39,2018-08-13 17:01:34,2018-04-11 12:52:51,2018-08-13 17:01:34,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Ganeshwara Hananda,"",13734,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,(Developer) Haikal Pribadi,None,True,False,1,Issue
+17433,Request,19209,Cluster Analytics With External Spark / Hadoop Cluster,"Goals
+Enable scalable `compute` queries to database users. Without an external Spark / Hadoop cluster, analytics queries will use the deafault in-memory Spark which isn't scalable.
+Approach
+Enable users to point Grakn to their Spark cluster, via configuration in`grakn.properties` (`spark.cluster=172.10.1.23`)
+","","","","",0.0000,0.0000,2018-01-20 19:27:05,2018-04-10 16:49:03,"",2018-04-10 16:49:03,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",13781,Haikal Pribadi,Ganeshwara Hananda,"",h,Medium,Accepted,(Developer) Ganeshwara Hananda,None,False,False,1,Feature
+13776,Request,19242,Schema: Source code schema editor,"Graql text editor to edit the schema for the knowledge base.
+","","","","",0.0000,0.0000,2018-01-23 16:55:28,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13806,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+13776,Request,19250,Migration: migration script editor,"Environment to write migration scripts
+","","","","",0.0000,0.0000,2018-01-23 17:09:04,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13813,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+13776,Request,19251,Migration: create & run migration jobs,"Environment to define migration executors (migrators), comprised of the data source (db or csv file directory), migration script, destination (keyspace), which can be scheduled to run.
+","","","","",0.0000,0.0000,2018-01-23 17:09:33,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13814,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+13776,Request,19252,Migration: running job tracker,"","","","","",0.0000,0.0000,2018-01-23 17:09:54,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13815,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+17433,Request,19264,Cluster Monitoring - Secure Inter-node Communication,"For Grakn KBMS to be considered enterprise compliant, security concerns should be addressed.
+Goals
+- Inter-node communication happening when collecting cluster metrics may need to be secured
+Approach
+- Do a discussion in order to decide if this is of high and immediate priority.
+- If it is, do an architecture design of how this is to be implemented
+","","","","",0.0000,0.0000,2018-01-26 12:09:40,2018-04-09 18:11:39,"",2018-04-09 18:11:36,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",13825,Haikal Pribadi,Ganeshwara Hananda,"",h,Medium,Accepted,(Developer) Ganeshwara Hananda,None,False,False,1,Feature
+15900,Request,19324,Engine: make Grakn embedded API private,"","","","","",0.0000,0.0000,2018-01-31 20:01:40,2018-08-14 22:08:03,2018-04-10 13:51:56,2018-04-10 17:18:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Haikal Pribadi,"",13866,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,True,False,1,Feature
+15900,Request,19434,Engine: track and provide instance count per type,"Goal:
+Track and provide instance count per type.
+When implemented, query planner can use it for making better decisions: Let's say you have a keyspace containing 10 millions of people living in 'London', of which 10 of them happen to be working at the 'Xian restaurant'. Given a query such as ""get me a person who lives in 'London' and works at the 'Xian restaurant', the query planner should intuitively start by from the predicate ""working at the 'xian restaurant'"", rather than ""living in 'London'"".
+","","","","",0.0000,0.0000,2018-02-08 19:07:16,2018-08-14 22:08:27,2018-06-21 16:46:02,2018-04-10 17:21:55,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,James Fletcher,"",13960,Haikal Pribadi,Ganeshwara Hananda,"",h,Medium,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Haikal Pribadi",None,True,False,1,Feature
+15900,Request,19832,Graql: ability to output schema by entity and relationship types (like how we write in the input schema),"","","","","",0.0000,0.0000,2018-04-05 14:23:34,2018-04-05 14:23:44,"",2018-04-05 14:23:33,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14293,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,(Developer) Haikal Pribadi,None,False,False,1,Feature
+17433,Request,19847,Cluster: Load Balancing,"Goal
+Develop a client-side round-robin load balancing:
+1. Allow specifying a list of nodes from the client side. Whenever a client opens a new session, it can connect to any of these nodes in a round-robin manner.
+2. Whenever a client opens a new session, it will also receive an updated information about new and dead nodes.
+","","","","",0.0000,0.0000,2018-04-10 17:34:11,2018-08-13 20:00:23,2018-04-16 14:23:46,2018-08-13 20:00:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Ganeshwara Hananda,"",14302,Haikal Pribadi,Ganeshwara Hananda,"",h,Medium,Accepted,(Developer) Ganeshwara Hananda,None,True,False,1,Feature
+17433,Request,19848,Cluster: Cassandra optimisation,"Cluster topology
+We need to figure out how to let Grakn Engine communicate with the local Cassandra.
+","","","","",0.0000,0.0000,2018-04-10 17:34:42,2018-08-13 20:00:32,"",2018-08-13 20:00:32,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",14303,Haikal Pribadi,Ganeshwara Hananda,"",h,Medium,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Kasper Piskorski",None,False,False,1,Feature
+17433,Request,19915,KGMS: 1.2 bugs,"Why:
+This is an umbrella requirement to host bugs which exists in KGMS 1.2
+How:
+N/A
+","","","","",0.0000,0.0000,2018-04-13 15:04:04,2018-09-11 22:11:11,"",2018-04-13 15:04:04,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,In Progress,"","",14330,Ganeshwara Hananda,Haikal Pribadi,"",h,Medium,In Progress,"(Developer) Ganeshwara Hananda, (Developer) Marco Scoppetta",None,False,False,1,Issue
+18754,Request,19972,Docs: 1.3 bugs (including Academy),"Why:
+This is an umbrella requirement to host bugs which exists in the documentation as of Grakn 1.3
+How:
+N/A
+",2018-04-16 17:19:00,"","","",0.0000,0.0000,2018-04-16 17:13:09,2018-09-11 22:13:38,"",2018-06-24 14:05:42,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","","",Developers,In Progress,"","",14356,Ganeshwara Hananda,Ganeshwara Hananda,"",h,Medium,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+13776,Request,20522,Workbase: 1.3 bugs,"Why:
+This is an umbrella requirement to host bugs which exists in Workbase 1.3
+How:
+N/A
+",2018-08-10 18:36:53,"","","",0.0000,0.0000,2018-08-10 18:36:53,2018-09-11 22:13:13,"",2018-08-13 00:56:33,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,In Progress,"","",14810,Ganeshwara Hananda,Marco Scoppetta,"",h,Medium,In Progress,(Developer) Syed Irtaza Raza,None,False,False,1,Issue
+15900,Request,20532,Graql: 1.3 bugs,"Why:
+This is an umbrella requirement to host bugs which exists in Grakn Core (Graql) 1.3
+How:
+N/A
+","","","","",0.0000,0.0000,2018-08-13 21:01:17,2018-09-11 22:12:21,"",2018-08-13 21:01:17,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14816,Ganeshwara Hananda,Haikal Pribadi,"",h,Medium,In Progress,"(Developer) Kasper Piskorski, (Developer) Haikal Pribadi",None,False,False,1,Issue
+15900,Request,20533,Engine: 1.3 bugs,"Why:
+This is an umbrella requirement to host bugs which exists in Grakn Core (Server) 1.3
+How:
+N/A
+","","","","",0.0000,0.0000,2018-08-13 21:05:49,2018-09-11 22:11:56,"",2018-08-13 21:05:49,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14817,Ganeshwara Hananda,Haikal Pribadi,"",h,Medium,In Progress,"(Developer) Ganeshwara Hananda, (Developer) Haikal Pribadi",None,False,False,1,Feature
+15900,Request,20536,Graql: 1.3 refactor,"","","","","",0.0000,0.0000,2018-08-13 21:25:17,2018-08-14 00:53:21,"",2018-08-13 21:25:17,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14819,Haikal Pribadi,Haikal Pribadi,"",h,Medium,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+15900,Request,20537,Dashboard: 1.3 bugs,"Why:
+This is an umbrella requirement to host bugs which exists in Grakn Core (Dashboard) 1.3
+How:
+N/A
+","","","","",0.0000,0.0000,2018-08-13 21:31:58,2018-09-11 22:13:00,"",2018-08-13 21:31:58,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14820,Ganeshwara Hananda,Haikal Pribadi,"",h,Medium,In Progress,(Developer) Syed Irtaza Raza,None,False,False,1,Issue
+15900,Request,20561,Clients: 1.3 client improvements,"","","","","",0.0000,0.0000,2018-08-14 14:01:28,2018-08-14 14:01:34,"",2018-08-14 14:01:28,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14827,Haikal Pribadi,Haikal Pribadi,"",h,Medium,In Progress,"(Developer) Haikal Pribadi, (Developer) Marco Scoppetta, (Developer) Joshua Send",None,False,False,1,Feature
+13776,Request,20610,Workbase: 1.4 Refactor,"","","","","",0.0000,0.0000,2018-08-16 17:05:31,2018-08-16 17:05:37,"",2018-08-16 17:05:30,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,In Progress,"","",14861,Syed Irtaza Raza,Syed Irtaza Raza,"",h,Medium,In Progress,(Developer) Syed Irtaza Raza,None,False,False,1,Feature
+15900,Request,20742,Database management integration with IDEs (e.g. Intellij),"","","","","",0.0000,0.0000,2018-09-04 14:09:36,2018-09-04 14:09:45,"",2018-09-04 14:09:36,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14976,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,"",None,False,False,1,Feature
+7469,Request,20807,Optimise web services repositories and hostings,"Why: We have quite a few web services at this point, such as Grakn's website (grakn.ai), docs (dev.grakn.ai), discuss (discuss.grakn.ai), slack signup (grakn.ai/slack), CMS (cms.grakn.ai) and so on. It's getting hard to manage and them, especially as they continue to grow. Right now there's repo in GitHub and Heroku for Grakn's website and docs, and both are hosted on Heroku. Discuss and CMS is hosted on Digital Ocean.
+How: We need to migrate all projects' source code to GitHub, and just have one repository each. We also need to migrate their hosting to all be on one platform, such Heroku.
+","","","","",0.0000,0.0000,2018-09-08 16:31:20,2018-09-08 16:40:00,"",2018-09-08 16:31:20,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Continuous Delivery,"","","",Developers,Accepted,"","",15005,Haikal Pribadi,Haikal Pribadi,"",h,Medium,Accepted,(Developer) Ganeshwara Hananda,None,False,False,1,Feature
+15900,Request,11171,Graql: support for referring to values of an attribute,"This is mostly useful for ""match ... insert"" queries or reasoner rules.
+e.g. if you want to attach a duplicate resource of a different type:
+
+match
+$x isa person, has birth-date $b;
+insert
+$x isa person, has birthday $b;This won't work, because $b will match a resource that isa birth-date. Instead we need a way to refer to the value of $b:
+
+match
+$x isa person, has birth-date $b1;
+insert
+$x isa person, has birthday $b2;
+$b2 value = $b1 value;
+(or similar)
+","","","","",0.0000,0.0000,2016-11-17 16:03:30,2018-08-14 22:11:21,"",2018-01-15 19:34:22,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"",Graql,5295,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,12183,Graql: basic arithmetic operations,"The ability to perform the following basic functions in graql:
+1. Addition
+2. Subtraction
+3. Multiplication
+etc. . .
+","","","","",0.0000,0.0000,2017-01-18 16:31:00,2018-08-14 22:14:07,2018-01-16 12:24:19,2018-01-15 19:27:10,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Filipe Peliz Pinto Teixeira,Graql,6793,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,True,False,2,Feature
+15900,Request,13185,Decide how to handle integers/floats,"How should we handle ""implicit casts"" between types?
+e.g. given an integer in a Graql query such as `3` in `match $x has count 3;` do we:
+Make the user be explicit - treat it as an integer, unless the user specifies otherwise, using `3.0` or `3d` or similar
+Implicit casts - use the ontology to infer what type we should treat it as (note: in some contexts this not possible such as `match $x val 3;`)
+Treat it as both an integer and a float simultaneously and return results for both cases
+All things being equal, I view ""explicit"" as better than ""implicit"" and therefore would settle for option 1 (which is also our current behaviour).
+I think 2 is not a good idea because it will not work in some contexts, such as `match $x has attribute 3;` or `match $x value 3;`. In these contexts, it is impossible to know what type to search for, so the behaviour would have to default to option 1 or 3. This ""change"" in behaviour is confusing and may actually contradict the Graql semantics written in relational algebra.
+Option 3 is a nice compromise, but it also has issues:
+Titan is not smart enough to use indices for the query above - it would search the entire graph for a value=3L or 3.0d. This might be a show-stopper on its own
+Floating points are weird. I don't know if `3` can be represented exactly in floating point, so searching for both integers and floats in this instance is perhaps unhelpful and may not give useful results.
+This requirement is not about the fact that the query `match $x has count 3;` is accepted, even if `count` is a double. The bug for that is here: https://work.grakn.ai/entity/13159
+","","","","",0.0000,0.0000,2017-03-20 15:14:14,2018-04-05 14:24:12,2018-01-16 12:22:57,2018-01-15 19:41:18,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Filipe Peliz Pinto Teixeira,Graql,8609,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,(Developer) Haikal Pribadi,None,True,False,1,Issue
+15900,Request,13731,Aggregate queries needs read/write mode configuration,"Aggregate queries are currently not considered to be read-only, because you can register custom aggregates that could modify the graph.
+We want to add a config/parameter/property to the aggregate queries that determine whether it is read-only=[TRUE|FALSE], where the default value is TRUE. This value is not configurable for system/native aggregate queries. If a user adds their own custom aggregate queries, they can define whatever they want.
+","","","","",0.0000,0.0000,2017-05-09 12:18:11,2018-04-09 18:56:30,"",2018-04-09 18:56:30,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"",Graql,8673,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,(Developer) Haikal Pribadi,None,False,False,1,Feature
+13776,Request,13784,"Editor: Able to pre-validate the ontology that is edited, even before commit","","","","","",0.0000,0.0000,2017-05-11 17:12:11,2018-01-23 17:55:39,"",2017-05-11 18:05:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8733,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+13776,Request,13786,Application: Be able to undo and redo edits (commit and uncommited),"","","","","",0.0000,0.0000,2017-05-11 17:12:22,2018-01-23 17:54:19,"",2017-05-11 18:05:23,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8736,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+13776,Request,13797,Editor: Graql syntax validator,"","","","","",0.0000,0.0000,2017-05-11 17:39:20,2018-01-23 17:55:39,"",2017-05-11 18:05:24,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8743,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+13776,Request,13798,Editor: Graql syntax autocomplete,"","","","","",0.0000,0.0000,2017-05-11 17:39:33,2018-01-23 17:55:15,"",2017-05-11 18:05:24,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",8749,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,15117,Incorporate Mutation Testing,"We keep reintroducing old bugs into the code which our test suite is not catching.
+One way to fix this problem is to do mutation testing. I.e. randomly mutating the code and seeing if the tests catch the issues created. This tool: http://pitest.org/ looks quite good.
+Mutation Testing Via http://pitest.org/ or some other tool will allow us to evaluate the utility of many of our tests. It will help us identify the most fragile components in the stack. I think we should use this.
+","","","","",0.0000,0.0000,2017-05-23 15:43:59,2018-08-14 01:40:54,"",2017-07-04 18:10:35,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",8804,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,2,Feature
+17433,Request,15322,Backup and Restoring,"","","","","",0.0000,0.0000,2017-06-05 17:34:58,2018-03-12 22:11:21,2018-01-15 18:17:40,2018-03-12 22:11:21,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Haikal Pribadi,Enterprise,8876,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,"",None,True,False,1,Feature
+17433,Request,15324,Full-String Indexing,"","","","","",0.0000,0.0000,2017-06-05 17:37:47,2018-01-15 18:15:59,2018-01-11 11:19:21,2018-01-15 18:15:59,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Ganeshwara Hananda,Enterprise,8887,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,"",None,True,False,1,Feature
+15900,Request,15864,Load multiple files from Graql Shell,"Editing multiple files is easier in terms of workflow so we (Miko & other ontology designers) currently do this:
+
+graql.sh -k $2 -f $GRAQL/ldbc-snb-1-resources.gql -r $1
+graql.sh -k $2 -f $GRAQL/ldbc-snb-2-relations.gql -r $1
+graql.sh -k $2 -f $GRAQL/ldbc-snb-3-entities.gql -r $1
+graql.sh -k $2 -f $GRAQL/ldbc-snb-4-rules.gql -r $1
+Loading like this breaks in a load balanced environment though so it would be nice to have:
+
+graql.sh -k $2 -r $1 -f $GRAQL/ldbc-snb-1-resources.gql  -f $GRAQL/ldbc-snb-2-relations.gql etc","","","","",0.0000,0.0000,2017-06-27 18:14:29,2018-03-25 00:06:33,"",2018-01-15 19:15:14,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"",Graql,9217,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,16013,Tests: Graql properties,"Basically put graql under the same insane testing that graph api undergoes. Not scale testing just sanity testing.
+",2018-01-17 18:33:05,"","","",0.0000,0.0000,2017-07-04 19:03:25,2018-08-14 22:06:38,"",2018-04-16 12:26:21,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","Graql, release 1.0, tests",9247,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,(Developer) Kasper Piskorski,None,False,False,0,Feature
+15900,Request,19004,Query for rules which includes a particular type,"e.g. `match $rule concludes person;`, `match grandparent-rule hypothesis $x;`
+or `match $rule when contains person;`
+Use Cases:
+1. Be able to lookup rules once rules no longer have sub links
+2. It is also an interesting way to see which types are affected/influenced by rules
+","","","","",0.0000,0.0000,2018-01-05 17:06:43,2018-04-05 14:24:12,"",2018-01-16 17:46:42,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"",Graql,13634,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+17433,Request,19067,Resource Restrictions Based on License,"Licenses should be able to control the amount of resources clients have access to. This includes limiting things such as number of cores, size of KB, etc . . . .
+","","","","",0.0000,0.0000,2018-01-08 19:08:18,2018-03-25 00:03:58,"",2018-01-15 18:25:54,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",13691,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+17433,Request,19068,Module-based Licensing,"Licence Management should be done on a per module level. For example one license could support:
+- Authentication
+- 6 cores
+- Full String Search
+While another only supports
+- Authentication
+- 2 cores
+The enforcement of licesnes should take this into account
+","","","","",0.0000,0.0000,2018-01-08 19:08:59,2018-03-25 00:03:58,2018-01-15 18:27:14,2018-01-15 18:26:48,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Haikal Pribadi,"",13692,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,True,False,1,Feature
+15900,Request,19084,Add 'desc' keyword to 'types' so we can document the description and query them,"We would like to document the description of a type, within the schema, such as the following.
+
+define
+
+company sub entity,
+desc ""A commercial institution that does business"",
+has name,
+has registration;
+
+commit
+","","","","",0.0000,0.0000,2018-01-09 14:47:22,2018-01-17 16:43:39,2018-01-09 16:17:50,2018-01-16 17:57:24,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Felix Chapman,Graql,13705,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,True,False,2,Feature
+17433,Request,19090,Cluster Admin: Collecting Data About Grakn Configuration And License Type,"Goals
+Expose the following: license type, expiry date and enabled modules such that it can be shown on Workbase/KBMS Console.
+Architecture
+- Expose this information, either via gRPC+SSL
+- Ideally, Workbase should perform a single call to the cluster and be able to receive information about every nodes in a cluster. In other words, Workbase should not need to perform a call to each and every node in the cluster.
+","","","","",0.0000,0.0000,2018-01-09 18:28:44,2018-04-10 16:49:22,2018-01-22 21:27:33,2018-04-10 16:49:21,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Ganeshwara Hananda,"",13710,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,(Developer) Marco Scoppetta,None,True,False,1,Feature
+17433,Request,19115,Disaster recovery strategy and solution,"","","","","",0.0000,0.0000,2018-01-12 01:33:40,2018-01-17 12:21:49,"",2018-01-12 01:33:40,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",13726,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,19888,Validate match query wrt. schema,"match isa <entity-name> has <attribute-name> should fail if <entity-name> isn't associated with <attribute-name>
+For example, if I have a schema:
+
+define name sub attribute datatype string;
+define publisher-company sub attribute datatype string;
+
+define country sub entity, has name;
+define game sub entity, has publisher-company;
+
+then, a query such as:
+
+match isa country has publisher-company; get;
+
+should return an error along the lines of country isn't associated with any attribute named publisher-company.
+","","","","",0.0000,0.0000,2018-01-16 12:18:15,2018-04-13 14:46:50,"",2018-04-13 11:32:59,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",13753,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,(Developer) Ganeshwara Hananda,None,False,False,1,Feature
+17433,Request,19202,Cluster Monitoring: Distributed Log Collection,"Goals
+Collect grakn.log, grakn-queue.log, and cassandra.log in such a way that they can be displayed on the UI. We should be able to look at the log of each node, at minimum.
+Architecture
+- Each node should expose an endpoint which streams the log, via gRPC
+Open question
+- How do we secure this endpoint
+","","","","",0.0000,0.0000,2018-01-19 20:04:22,2018-04-10 16:45:39,2018-02-08 01:34:30,2018-04-10 16:45:38,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,Haikal Pribadi,"",13776,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,(Developer) Ganeshwara Hananda,None,True,False,1,Feature
+13776,Request,19244,Schema: change management,"UI controls to manage data migration under the hood when performing specific types of ""heavy"" schema changes.
+","","","","",0.0000,0.0000,2018-01-23 16:59:46,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13808,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+13776,Request,19256,Admin: user preferences,"","","","","",0.0000,0.0000,2018-01-23 17:50:05,2018-01-23 18:06:25,"",2018-01-23 18:06:25,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Workbase,"","","",Developers,Accepted,"","",13819,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,19766,Grakn: Support daemon manager for running as a service,"- Support common system daemon tools: systemctl, systemd
+","","","","",0.0000,0.0000,2018-03-22 17:53:31,2018-04-10 17:22:19,"",2018-04-10 17:22:18,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14238,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,(Developer) Ganeshwara Hananda,None,False,False,1,Feature
+7469,Request,20541,Multi-region GC deployment,Look at custom multi-region resource datastax does: https://github.com/DSPN/google-compute-engine-dse/blob/master/regional_multi_vm.py In here is how it works in action: https://github.com/DSPN/google-compute-engine-dse/blob/master/datastax.py Will require thorough testing.,"","","","",0.0000,10.0000,2018-04-09 15:17:56,2018-08-13 22:21:59,"",2018-08-13 22:21:59,10.0000,0.0000,10.0000,(Developer) 10.0000,0.0000,Continuous Delivery,"","","",Developers,Accepted,"","",14297,Haikal Pribadi,Kasper Piskorski,"",h,Low,Accepted,(Developer) Kasper Piskorski,None,False,False,1,Feature
+7469,Request,19853,Remote client compatibility test,"Goal
+Before each commit to master, verify that the new build can still work with the older remote client
+","","","","",0.0000,0.0000,2018-04-10 18:22:54,2018-04-13 15:08:57,2018-04-13 12:23:30,2018-04-13 15:08:24,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Continuous Delivery,"","","",Developers,Accepted,Ganeshwara Hananda,"",14304,Haikal Pribadi,Ganeshwara Hananda,"",h,Low,Accepted,(Developer) Ganeshwara Hananda,None,True,False,1,Feature
+17433,Request,19861,KGMS: 1.2 refactor,"","","","","",0.0000,0.0000,2018-04-11 17:44:02,2018-08-14 00:53:15,"",2018-04-11 17:44:02,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,In Progress,"","",14310,Haikal Pribadi,Haikal Pribadi,"",h,Low,In Progress,(Developer) Marco Scoppetta,None,False,False,1,Feature
+17433,Request,19870,Security: node-to-node communication encryption,"","","","","",0.0000,0.0000,2018-04-11 19:04:05,2018-04-11 19:04:05,"",2018-04-11 19:04:05,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",14317,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+17433,Request,19871,Auditing: database operational logs,"","","","","",0.0000,0.0000,2018-04-11 19:06:36,2018-04-11 19:06:36,"",2018-04-11 19:06:36,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",14318,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+17433,Request,19872,Disaster Recovery,"","","","","",0.0000,0.0000,2018-04-11 19:30:33,2018-04-11 19:30:33,"",2018-04-11 19:30:33,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",14319,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+17433,Request,19873,HA: Multiregion,"","","","","",0.0000,0.0000,2018-04-11 19:30:40,2018-04-13 02:43:39,"",2018-04-11 19:30:40,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn KGMS,"","","",Developers,Accepted,"","",14320,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,19876,Analytics starting with a match query,"Improve analytics syntax, pass a match query as subgraph.
+e.g. degree:
+
+match 
+$x isa person; 
+$y isa movie; 
+($x, $y) isa has-cast; 
+compute degree; persist true;
+
+graql.match(
+var(“x”).isa(“person”), 
+var(“y”).isa(“movie”), 
+var().rel(“y”).rel(“x”).isa(“has-cast”)
+).compute().degree().execute();
+This can NOT be done with current version with tinkerpop.
+04/11/2016 Syntax Meeting Notes
+https://docs.google.com/document/d/1G8RkFCPiSSiEaI6-dMWwp_Q90sL3I4wyoTzzJtd7JY8/edit
+","","","","",0.0000,0.0000,2018-04-12 13:47:18,2018-05-13 14:32:00,2018-04-13 01:54:15,2018-04-13 01:54:20,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Haikal Pribadi,"",14323,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,True,False,1,Feature
+18754,Request,19919,Docs: Graql components,"","","","","",0.0000,0.0000,2018-04-13 18:56:55,2018-08-14 13:13:30,"",2018-08-14 13:13:30,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","","",Developers,Accepted,"","",14333,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,(Developer) Haikal Pribadi,None,False,False,1,Feature
+15900,Request,19923,Benchmarking with SNB,"","","","","",0.0000,0.0000,2018-04-14 21:14:52,2018-08-14 01:40:54,"",2018-04-14 22:32:36,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14335,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,"",None,False,False,1,Feature
+15900,Request,19988,Graql: dedicated file types,"We should have two different type of graql files: one for schema only, one for data.
+This means the user cannot insert both schema and data in one file.
+","","","","",0.0000,0.0000,2018-04-18 17:23:21,2018-08-13 19:43:16,"",2018-08-13 19:43:16,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,"","",14365,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,(Developer) Haikal Pribadi,None,False,False,0,Feature
+15900,Request,19995,Subtype of attribute should have the same datatype of its super type,"e.g.
+define
+name sub attribute datatype string;
+surname sub name;
+Here surname should have datatype string, and the following should throw an exception:
+define
+name sub attribute datatype string;
+surname sub name datatype long;
+","","","","",0.0000,0.0000,2018-04-20 12:10:51,2018-05-13 14:32:00,2018-04-28 00:09:49,2018-04-28 00:09:00,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,Accepted,Haikal Pribadi,"",14372,Haikal Pribadi,Haikal Pribadi,"",h,Low,Accepted,(Developer) Haikal Pribadi,None,True,False,1,Feature
+15900,Request,20539,Graql: 1.3 syntax improvements,"","","","","",0.0000,0.0000,2018-08-13 21:52:17,2018-08-13 22:53:27,"",2018-08-13 21:52:17,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Grakn Core,"","","",Developers,In Progress,"","",14822,Haikal Pribadi,Haikal Pribadi,"",h,Low,In Progress,(Developer) Haikal Pribadi,None,False,False,1,Feature
+18754,Request,20661,Tutorial: Moving from MongoDB to Grakn,"Read the description on the requirement of this card to obtain an overall understanding for the objective, this task has.
+The main objectives of this task are to:
+1. Describe the strengths and weaknesses of MongoDB
+2. Describe the strengths of Grakn
+3. Describe how to model a simple domain with rich relationships in Grakn
+4. Load the data into Grakn (keep it short; refer to migration tutorial if the user wants to learn more)
+5. Demonstrate interesting and insightful queries using Grakn
+Database Comparison
+The audience is assumed to be experienced with MongoDB
+MongoDB Strengths and Weaknesses
+MongoDB is great in,
+Allows changes in the design over time
+Has built-in support for Geospatial data
+Scales well horizontally (Sharding)
+Document based query language that feels familiar to the JS community
+MongoDB sucks in that it's:
+Limited by its initial design: it’s only when you start working with a complex aggregation framework, that you realise the need to redesign the data scheme
+The aggregation framework gets large fast and becomes difficult to read (mongoose tries to solve this).
+It’s not possible to bind logic to a stored procedure
+(complex) transactions are sacrificed for better scalability
+Proper (strict) indexing is required for better performance. From MongoDB Docs
+Introduce Grakn
+Grakn is awesome in,
+You don’t have to know all future requirements when coming up with the initial design. as the requirements evolve, Grakn adopts
+Queries are short and easy to read
+Rules can be defined to make my knowledge graph learn and become more intelligent
+Interconnected pieces of data, allow complex transactions
+Dataset and Analysis
+customers who make calls to people who may or may not be a customer.
+Insights
+In the last 30 days, how many different customers called person X who is not (yet) a customer?
+how does the call duration among customers under 25 compares to those above 30?
+who are the top 10 non-customer people who have received the most number of calls from customer X?
+who are the top 10 non-customer people who have had the longest conversations with customer X?
+what percentage of the customers who live in Esfahan ever made a call for longer than 9 seconds?
+Extension opportunities
+how many customers have used an unregistered cellphone for minimum of 50 last calls? > making calls via registered/unregistered phone > 3 way relationship (?)
+what percentage of the customers who live in Manchester received at least one call a day from a non-customer contact? > receiving calls
+what languages does customer X speak? > sending (and receiving) text messages > subtyping message to store language
+",2018-08-23 02:33:54,"","","",0.0000,0.0000,2018-08-22 19:16:14,2018-08-25 18:40:01,"",2018-08-23 14:16:21,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Documentation,"","",2018 Week 34,Developers,In Progress,"","",14893,Soroush Saffari,Soroush Saffari,"",h,Low,In Progress,(Developer) Soroush Saffari,None,False,False,1,Feature
+7469,Request,20791,Source Code QA Management,"Why:
+Grakn codebase has become quite big - nearing 100K lines of code as of Grakn 1.3.0.
+How:
+Need to be able to manage the codebase from a macro-level perspective:
+- manage how modules depend on others
+- manage 3rd party library dependencies
+- standardised code style
+","","","","",0.0000,0.0000,2018-09-06 12:21:04,2018-09-06 15:58:49,2018-09-06 12:27:20,2018-09-06 15:58:48,0.0000,0.0000,0.0000,(Developer) 0.0000,0.0000,Continuous Delivery,"","","",Developers,Accepted,Ganeshwara Hananda,"",14994,Ganeshwara Hananda,Ganeshwara Hananda,"",h,Low,Accepted,(Developer) Ganeshwara Hananda,None,True,False,1,Feature
