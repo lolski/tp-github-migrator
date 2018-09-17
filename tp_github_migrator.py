@@ -32,7 +32,7 @@ def tp_requirements_to_github_issues(tp_requirements):
 
     github_issues = []
     for req in tp_requirements:
-        repository = 'grakn-kgms' if req['Project'] == 'Grakn KGMS' else 'grakn-core'
+        repository = 'fake-grakn-kgms' if req['Project'] == 'Grakn KGMS' else 'fake-examples' if req['Project'] == 'Examples' else 'fake-grakn'
         project = [req['Project'].lower()]
         request_type = [req['Request Type'].lower()]
         state = ['in progress'] if req['Entity State'] == 'In Progress' else []
@@ -44,12 +44,6 @@ def tp_requirements_to_github_issues(tp_requirements):
             'labels': project + request_type + state,
             'assignees': tp_users_to_github_users(req['Assignments']),
         }
-
-        print("=====")
-        print(req['Description'])
-        print("=====")
-        print(issue)
-        print("===")
 
         github_issues.append(issue)
 
@@ -63,16 +57,23 @@ tp_requirement_csv_path = './data/tp/Requirements Export - Edit v2.csv'
 github_user = 'lolski'
 github_password = 'p4UbNNQO5ToEBDDJvptO'
 github_organisation_name = 'graknlabs'
-github_grakn_core_repository_name = 'fake-grakn'
-github_grakn_kgms_repository_name = 'fake-grakn-kgms' # TODO: use
+github_repository_names = ['fake-grakn', 'fake-grakn-kgms', 'fake-examples']
 
 if __name__ == '__main__':
     tp_requirements = list(csv.DictReader(open(tp_requirement_csv_path)))[0:3]
     github_issues = tp_requirements_to_github_issues(tp_requirements)
-
-    print(github_issues)
     github_connection = gh.Github(github_user, github_password)
     github_organisation = github_connection.get_organization(github_organisation_name)
-    github_repository = github_organisation.get_repo(github_grakn_core_repository_name)
+
+    github_repositories = {}
+    for key in github_repository_names:
+        github_repositories[key] = github_organisation.get_repo(key)
+
+    print('migrating the following TP tickets as Github issues:')
     for issue in github_issues:
-        github_repository.create_issue(title=issue['title'], body=issue['body'], labels=issue['labels'], assignees=issue['assignees']) # TODO: repository
+        key = issue['repository']
+        target_repo = github_repositories[key]
+        print('repository = {}, title = {}, body = {}, labels = {}, assignees = {}'.format(key, issue['title'][0:20] + '...', issue['body'][0:20] + '...', issue['labels'], issue['assignees']))
+        # target_repo.create_issue(title=issue['title'], body=issue['body'], labels=issue['labels'], assignees=issue['assignees']) # TODO: repository
+
+    print('done.')
