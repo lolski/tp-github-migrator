@@ -76,6 +76,8 @@ if __name__ == '__main__':
     tp_requirements = list(csv.DictReader(open(tp_requirement_csv_path)))[0:3]
     github_issues = tp_requirements_to_github_issues(tp_requirements)
 
+    # ALWAYS pass in a user/pass instead of an OAuth credential.
+    # As of PyGithub==1.43.2, there is a bug which will cause create_issue() to fail with 404 if an OAuth credential is used.
     github_connection = gh.Github(github_user, github_password)
     github_organisation = github_connection.get_organization(github_organisation_name)
     print('migrating the following TP tickets as Github issues:')
