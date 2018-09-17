@@ -30,22 +30,36 @@ def tp_requirements_to_github_issues(tp_requirements):
 
         return github_users
 
-    github_issues = []
-    for req in tp_requirements:
-        repository = 'fake-grakn-kgms' if req['Project'] == 'Grakn KGMS' else 'fake-examples' if req['Project'] == 'Examples' else 'fake-grakn'
-        project = [req['Project'].lower()]
-        request_type = [req['Request Type'].lower()]
-        state = ['in progress'] if req['Entity State'] == 'In Progress' else []
+    def determine_github_repository(project):
+        if project == 'Grakn KGMS':
+            return 'fake-grakn-kgms'
+        elif project == 'Examples':
+            return 'fake-examples'
+        elif project == 'Benchmark':
+            return 'fake-benchmark'
+        elif project == 'Research':
+            return 'fake-research'
+        elif project == 'POC':
+            return 'fake-poc'
+        else: # Grakn Core, CI/CD, Clients (Java, Python, Node.js), Workbase
+            return 'fake-grakn'
 
-        issue = {
-            'repository': repository,
-            'title': req['Name'],
-            'body': req['Description'].replace('\n', '\n\n'),
-            'labels': project + request_type + state,
-            'assignees': tp_users_to_github_users(req['Assignments']),
+    github_issues = []
+    for tp_req in tp_requirements:
+        gh_repository = determine_github_repository(tp_req['Project'])
+        gh_project = [tp_req['Project'].lower()]
+        gh_request_type = [tp_req['Request Type'].lower()]
+        gh_state = ['in progress'] if tp_req['Entity State'] == 'In Progress' else []
+
+        gh_issue = {
+            'repository': gh_repository,
+            'title': tp_req['Name'],
+            'body': tp_req['Description'].replace('\n', '\n\n'),
+            'labels': gh_project + gh_request_type + gh_state,
+            'assignees': tp_users_to_github_users(tp_req['Assignments']),
         }
 
-        github_issues.append(issue)
+        github_issues.append(gh_issue)
 
     return github_issues
 
