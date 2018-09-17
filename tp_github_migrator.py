@@ -57,22 +57,17 @@ tp_requirement_csv_path = './data/tp/Requirements Export - Edit v2.csv'
 github_user = 'lolski'
 github_password = 'p4UbNNQO5ToEBDDJvptO'
 github_organisation_name = 'graknlabs'
-github_repository_names = ['fake-grakn', 'fake-grakn-kgms', 'fake-examples']
 
 if __name__ == '__main__':
     tp_requirements = list(csv.DictReader(open(tp_requirement_csv_path)))[0:3]
     github_issues = tp_requirements_to_github_issues(tp_requirements)
+
     github_connection = gh.Github(github_user, github_password)
     github_organisation = github_connection.get_organization(github_organisation_name)
-
-    github_repositories = {}
-    for key in github_repository_names:
-        github_repositories[key] = github_organisation.get_repo(key)
-
     print('migrating the following TP tickets as Github issues:')
     for issue in github_issues:
         key = issue['repository']
-        target_repo = github_repositories[key]
+        target_repo = github_organisation.get_repo(key)
         print('repository = {}, title = {}, body = {}, labels = {}, assignees = {}'.format(key, issue['title'][0:20] + '...', issue['body'][0:20] + '...', issue['labels'], issue['assignees']))
         # target_repo.create_issue(title=issue['title'], body=issue['body'], labels=issue['labels'], assignees=issue['assignees']) # TODO: repository
 
