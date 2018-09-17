@@ -3,7 +3,8 @@ import csv
 import requests
 import json
 import base64
-
+import html
+import bs4
 # https://developer.github.com/v3/issues/#create-an-issue
 
 
@@ -23,8 +24,10 @@ def get_github_comments_from_tp_requirement(tp_user, tp_password, tp_requirement
     github_comments = []
     for tp_comment in tp_response_json['Items']:
         tp_original_poster = tp_comment['Owner']['FirstName'] + ' ' + tp_comment['Owner']['LastName']
-        gh_comment = '~This comment was originally posted by {} on {}~.\n\n{}'.format(tp_original_poster, tp_comment['CreateDate'], tp_comment['Description'])
-        github_comments.append(gh_comment)
+        gh_comment_raw = '~This comment was originally posted by {} on {}~.\n\n{}'.format(tp_original_poster, tp_comment['CreateDate'], tp_comment['Description'])
+        gh_comment_unescape = html.unescape(gh_comment_raw)
+        gh_comment_stripped = bs4.BeautifulSoup(gh_comment_unescape).get_text()
+        github_comments.append(gh_comment_stripped)
     return github_comments
 
 
