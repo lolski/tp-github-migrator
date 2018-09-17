@@ -1,0 +1,103 @@
+ProjectID,Entity Type,ID,Name,Description,Start Date,Planned Start Date,End Date,Planned End Date,Time Spent,Time Remain,Create Date,Modify Date,Last Comment Date,Last State Change Date,Effort,Effort Completed,Effort To Do,Role Efforts,Progress,Project,Release,Sprint,Team Sprint,Assigned Teams,Team State,Last Commented User,Tags,Numeric Priority,Last Editor,Owner,Linked Test Plan,Units,Priority,Entity State,Assignments,Source Type,Is Replied,Is Private,Votes Count,Request Type
+15900,Request,12638,Graql: Make Graql cost function use graph metrics,"Use the data in the graph to inform estimated cost. This could include:
+Number of instances per type
+Number of role-players per relation
+Number of resources with particular values
+For scalability, these values should either be calculated continuously (e.g. incrementing a counter when adding an instance) or sampled randomly.
+",2018-01-17 18:33:05,,,,0,0,2017-02-08 16:34:51,2018-04-10 16:57:12,2018-02-07 18:10:38,2018-04-10 16:57:12,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,Accepted,Felix Chapman,Graql,6862,Haikal Pribadi,Haikal Pribadi,,h,High,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Haikal Pribadi",None,True,False,1,Feature
+13776,Request,13780,Schema: Highlight connected types in a visualised graph,,,,,,0,0,2017-05-11 17:11:31,2018-01-23 17:44:32,,2017-05-11 18:05:23,0,0,0,(Developer) 0.0000,0,Workbase,,,,Developers,Accepted,,,8710,Haikal Pribadi,Haikal Pribadi,,h,High,Accepted,,None,False,False,1,Feature
+15900,Request,15572,Architecture: repackage distributions,"We are in the process of redesigning our architecture after we redefine our package architecture, we want to refine our distributions.
+a) differentiate product names (Grakn Core VS Grakn KGMS)
+b) differentiate package services (Server VS Console)
+c) Unify entry point through the shell script (just have one console per product)
+For the binary/jar distribution, we want to have the following:
+For Grakn Core:
+1. grakn-core : the shell script for running server or console on Grakn Core.
+2. grakn-core-server.jar
+3. grakn-core-console.jar
+Users can then install grakn through package managers in such a way (example using APT, but should apply for eery package manager):
+1. apt-get install grakn-core-all which installs 1, 2, and 3 from above.
+2. apt-get install grakn-core-server which installs 1 and 2 from above.
+3. apt-get install grakn-core-console which installs 1 and 3 from above.
+For Grakn KGMS
+1. grakn-kgms : the shell script for running server or console on Grakn KGMS.
+2. grakn-kgms-server.jar
+3. grakn-kgms-console.jar
+Users can then install grakn through package managers in such a way (example using APT, but should apply for eery package manager):
+1. apt-get install grakn-kgms-all which installs 1, 2, and 3 from above.
+2. apt-get install grakn-kgms-server which installs 1 and 2 from above.
+3. apt-get install grakn-kgms-console which installs 1 and 3 from above.
+Note:
+1. There is no package manager command to install both grakn-core and grakn-kgms distributions all at once, because it is not needed.
+2. grakn-kgms distributions can only be installed through a package manager, when the user is provided access to our internal APT server, or other package managers.",,,,,0,0,2017-06-13 12:45:21,2018-08-21 14:44:11,2018-04-09 17:11:52,2018-01-17 18:23:31,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,In Progress,Haikal Pribadi,Graql,8991,Haikal Pribadi,Haikal Pribadi,,h,High,In Progress,(Developer) Haikal Pribadi,None,True,False,1,Feature
+15900,Request,17597,Console: keyspace management,"We need a way of managing keyspaces in grakn, similar to `DROP DATABASE` or `CREATE DATABASE` in the SQL world.
+My proposal is to do it through the graql console:
+
+keyspace list
+keyspace add <keyspace-name>
+keyspace rename <from-name> <to-name>
+keyspace delete <keyspace-name>",2018-07-16 18:09:49,,,,0,0,2017-09-26 18:05:59,2018-08-13 16:45:45,,2018-08-13 16:45:44,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,Accepted,,Grakn,12418,Haikal Pribadi,Ganeshwara Hananda,,h,High,Accepted,(Developer) Marco Scoppetta,None,False,False,1,Feature
+17433,Request,19010,KGMS: small end-to-end correctness test,"Acceptance criteria
+The sole goal of the end-to-end test is to have some confidence that clustering works and we're not losing any data under the happy-path scenario. This should be achieved with the following verification process:
+1. Support a scenario where we can run a fast test. Fast test = productivity. We can expect to need to re-run the test many times especially considering the early stage of the product. Aim for small dataset consisting of 5K entities, attributes, and relations following a regular pattern.
+2. Being able to verify that the data have been inserted properly. In case of error, the error should be logged properly, enabling the team to start looking at the right place.
+3. Being able to re-run the test in an automated way in order to maintain productivity. Ideally, we should be aiming under 10 minutes for a single run, including node initialization.
+Implementation detail
+TODO
+Implementation detail (Postponed due to Issues with running SNB with KGMS)
+1. We're looking into re-using SNB test as a data source
+2. There are various issues in making the test fully automatable:
+a. We have to discuss which infrastructure to use (e.g. our own server, Amazon AWS, Oracle cloud)
+b. Infrastructure set up should be automated. Using immutable infrastructure or infrastructure as code approach would be a nice plus in order to reduce complexity.
+c. Grakn distribution build process must be automated",2018-01-17 19:05:59,,,,0,0,2018-01-05 21:21:30,2018-08-13 19:55:49,,2018-08-13 19:55:49,0,0,0,(Developer) 0.0000,0,Grakn KGMS,,,,Developers,Accepted,,,13638,Haikal Pribadi,Ganeshwara Hananda,,h,High,Accepted,"(Developer) Ganeshwara Hananda, (Developer) Kasper Piskorski",None,False,False,1,Feature
+13776,Request,19240,Workbase: Basic schema designer,"Environment to design the schema for the knowledge base, which includes definining and undefining Entities, Relationships, and Attributes, through the UI.
+",2018-08-08 18:41:29,,,,0,0,2018-01-23 16:43:55,2018-08-14 00:56:14,,2018-08-14 00:56:14,0,0,0,(Developer) 0.0000,0,Workbase,,,,Developers,Accepted,,,13804,Haikal Pribadi,Haikal Pribadi,,h,High,Accepted,(Developer) Syed Irtaza Raza,None,False,False,1,Feature
+15900,Request,19312,Grakn: Deprecating REST API,"This is a Question Requirement, not Issue/Feature.
+I would like to hear everyone's opinion on this. Do we want to keep our REST API once we have our RPC Clients?
+Let's discuss in the comments. This is already a private Requirement.
+",2018-01-30 20:54:05,,,,0,0,2018-01-30 20:54:05,2018-04-10 17:06:18,2018-02-07 16:18:06,2018-04-10 17:06:17,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,Accepted,Ganeshwara Hananda,,13860,Haikal Pribadi,Haikal Pribadi,,h,High,Accepted,(Developer) Marco Scoppetta,None,True,True,1,Question
+15900,Request,20283,Benchmarking 1.0,"Why:
+We don't have the framework for measuring Grakn performance. Therefore, most of the discussion about optimisation revolves around assumptions.
+How:
+Develop a measurement framework in the form of a benchmarking system - a basic system to record and manage data representing the following pionts, and display this data in a usable format.
+1. the execution time of queries from start to finish at different knowledgebase sizes
+2. the run time of each component in Grakn when a query is being performed",2018-07-02 16:05:47,,,,0,0,2018-07-02 16:05:47,2018-09-10 15:30:26,,2018-08-13 00:56:32,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,In Progress,,,14602,Joshua Send,James Fletcher,,h,High,In Progress,(Developer) Joshua Send,None,False,False,1,Feature
+15900,Request,20391,Engine: correctness guarantee of transaction and Concept Id,"Why:
+We need to be able to answer questions such as ""Is Grakn ACID-compliant?"" confidently. The confidence is achieved by documenting the correctness guarantee that Grakn promise to the user.
+How:
+Grakn queries are converted into JanusGraph's Gremlin queries, which then got converted into Cassandra queries. Therefore, by documenting a mapping between a Grakn query -> JanusGraph query -> Cassandra query, we'll be able to reason about the correctness guarantee.
+The work will be divided into:
+- Map tx.open and tx.commit operations from Grakn to Janus and Cassandra (Completed)
+- Map the tx.graql().match(var(""x"").isa(""person"")).execute() at Grakn transaction, Janus, and Cassandra Level (In-Progress)
+- Concept Id: Investigate the probability of ID collision in the cluster scenario (In-Progress)
+Resulting document: https://docs.google.com/document/d/1OT2f3Cr7Tq01rA-U7CkpQgwu14am6THAFuk5i_50J14/edit",2018-07-19 16:14:00,,,,0,0,2018-07-19 16:13:35,2018-09-07 16:30:03,2018-07-23 15:06:32,2018-09-07 16:17:09,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,In Progress,Jyothish Soman,,14694,Ganeshwara Hananda,Ganeshwara Hananda,,h,High,In Progress,(Developer) Jyothish Soman,None,True,False,1,Feature
+13776,Request,20513,Workbase: automated build and deployment,"Have CI workflow that allows us to automatically package workbase for Linux and Mac and create a github draft release that contains grakn && workbase distribution packages(zip, dmg, tar)
+",2018-08-10 13:34:37,,,,0,0,2018-08-10 13:34:37,2018-08-16 17:02:34,,2018-08-13 00:56:33,0,0,0,(Developer) 0.0000,0,Workbase,,,,Developers,In Progress,,,14802,Marco Scoppetta,Marco Scoppetta,,h,High,In Progress,(Developer) Marco Scoppetta,None,False,False,1,Feature
+15900,Request,20535,Graql: 1.3 performance optimisation,,,,,,0,0,2018-08-13 21:17:07,2018-08-21 12:57:03,,2018-08-13 21:17:07,0,0,0,(Developer) 0.0000,0,Grakn Core,,,,Developers,In Progress,,,14818,Haikal Pribadi,Haikal Pribadi,,h,High,In Progress,"(Developer) Kasper Piskorski, (Developer) Joshua Send",None,False,False,1,Feature
+18754,Request,20659,Docs: new migration examples with Client Node.js,"The goal: of this requirement is to:
+1. create migration examples that use our drivers, rather than the Graql Migration templates (how it's currently documented)
+2. write a tutorial for each example
+3. publish the tutorial on the blog and documentation platform
+Examples: For each Grakn Client driver illustrate migrating data from the following formats:
+1. CSV
+2. SQL
+3. JSON
+4. XML
+Dataset: For each example must have one or more of the following characteristics:
+1. contains simple data types
+2. contains a simple relationship
+Article structure: Given a simple dataset in a given format (e.g. CSV), show how to:
+1. Define the schema of the database
+make a simple schema
+load the schema into the database
+query the schema (through terminal)
+write an example of insert query (through terminal)
+2. Load the dataset to the database
+produce the insert queries with the dataset
+import the driver into the program
+read the dataset into the program
+create a database session and transaction in the program
+write and commit the insert queries, using the transactions, onto the database
+3. Query the data
+query the data from the database
+visualise the data",,,,,0,0,2018-08-23 13:40:20,2018-08-25 17:38:36,2018-08-23 13:40:21,2018-08-23 13:41:17,0,0,0,(Developer) 0.0000,0,Documentation,,,,Developers,In Progress,Haikal Pribadi,,14891,Soroush Saffari,Soroush Saffari,,h,High,In Progress,(Developer) Soroush Saffari,None,True,False,2,Feature
