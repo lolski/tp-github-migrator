@@ -10,6 +10,27 @@ import bs4
 
 #### helpers ####
 def get_github_comments_from_tp_requirement(tp_user, tp_password, tp_requirement_id):
+    def str_replace_tp_mention_to_github_mention(original_string):
+        map = {
+            '@user:ganesh[Ganeshwara Hananda]': '@lolski',
+            '@user:ganesh[Ganeshwara Herawan Hananda]': '@lolski',
+            '@user:haikal[Haikal Pribadi]': '@haikalpribadi',
+            '@user:haikal@grakn.ai[Haikal Pribadi]': '@haikalpribadi',
+            '@user:marco[Marco Scoppetta]': '@marco-scoppetta',
+            '@user:kasper[Kasper Piskorski]': '@kasper-piskorski',
+            '@user:syed[Syed Irtaza Raza]': '@Irtazaraza',
+            '@user:joshua[Joshua Send]': '@flyingsilverfin',
+            '@user:jyothish[Jyothish Soman]': '@jyosoman',
+            'Soroush Saffari': '@sorsaffari',
+            '@user:james[James Fletcher]': '@jmsfltchr',
+            '@user:tomas[Tomas Sabat]': '@tomassabat',
+        }
+
+        replaced_string = original_string
+        for key in map:
+            replaced_string = replaced_string.replace(key, map[key])
+        return replaced_string
+
     tp_url = "https://work.grakn.ai/api/v1/assignables/{}/comments".format(tp_requirement_id)
     tp_querystring = {"format": "json"}
     basic_auth = base64.b64encode(bytes("{}:{}".format(tp_user, tp_password), 'utf-8')).decode()
@@ -24,10 +45,11 @@ def get_github_comments_from_tp_requirement(tp_user, tp_password, tp_requirement
     github_comments = []
     for tp_comment in tp_response_json['Items']:
         tp_original_poster = tp_comment['Owner']['FirstName'] + ' ' + tp_comment['Owner']['LastName']
-        gh_comment_raw = '~This comment was originally posted by {} on {}~.\n\n{}'.format(tp_original_poster, tp_comment['CreateDate'], tp_comment['Description'])
+        gh_comment_raw = '_This comment was originally posted by {} on {}_.\n\n{}'.format(tp_original_poster, tp_comment['CreateDate'], tp_comment['Description'])
         gh_comment_unescape = html.unescape(gh_comment_raw)
         gh_comment_stripped = bs4.BeautifulSoup(gh_comment_unescape).get_text()
-        github_comments.append(gh_comment_stripped)
+        gh_comment_mention = str_replace_tp_mention_to_github_mention(gh_comment_stripped)
+        github_comments.append(gh_comment_mention)
     return github_comments
 
 
@@ -115,8 +137,10 @@ if __name__ == '__main__':
         key = issue['repository']
         target_repo = github_organisation.get_repo(key)
         print('repository = {}, title = {}..., body = {}..., labels = {}, assignees = {}'.format(key, issue['title'][0:20], issue['body'][0:20], issue['labels'], issue['assignees']))
+        created_issue = target_repo.create_issue(title=issue['title'], body=issue['body'], labels=issue['labels'], assignees=issue['assignees']) # TODO: repository
         for gh_comment in issue['comments']:
             print(' - comment: ...{}...'.format(gh_comment.replace('\n', '')[100:240]))
-        # target_repo.create_issue(title=issue['title'], body=issue['body'], labels=issue['labels'], assignees=issue['assignees']) # TODO: repository
+            created_issue.create_comment(gh_comment)
+
 
     print('done.')
