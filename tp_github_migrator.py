@@ -34,11 +34,7 @@ def get_github_comments_from_tp_requirement(tp_user, tp_password, tp_requirement
     tp_url = "https://work.grakn.ai/api/v1/assignables/{}/comments".format(tp_requirement_id)
     tp_querystring = {"format": "json"}
     basic_auth = base64.b64encode(bytes("{}:{}".format(tp_user, tp_password), 'utf-8')).decode()
-    tp_headers = {
-        'Authorization': "Basic {}".format(basic_auth),
-        'Cache-Control': "no-cache",
-        'Postman-Token': "5d9693d3-0177-405f-8080-ccbad8663b9f"
-    }
+    tp_headers = { 'Authorization': "Basic {}".format(basic_auth) }
     tp_response = requests.request("GET", tp_url, headers=tp_headers, params=tp_querystring)
     tp_response_json = json.loads(tp_response.text)
 
